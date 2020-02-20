@@ -44,7 +44,7 @@ namespace Server.Web
                             if(!LunaNetUtils.IsTcpPortInUse(WebsiteSettings.SettingsStore.SSLPort)
                             {
                                 var serverCertificate = X509Certificate.CreateFromCertFile(WebsiteSettings.SettingsStore.SSLCertFilePath);
-                                httpServer.Use(new ListenerSslDecorator(new TcpListenerAdapter(new TcpListener(IPAddress.Any, WebsiteSettings.SettingsStore.SSLPort)), serverCertificate));
+                                Server.Use(new ListenerSslDecorator(new TcpListenerAdapter(new TcpListener(IPAddress.Any, WebsiteSettings.SettingsStore.SSLPort)), serverCertificate));
                             }
                         }
                         Server.Use(new ExceptionHandler());
