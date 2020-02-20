@@ -11,6 +11,15 @@ namespace Server.Settings.Definition
 
         [XmlComment(Value = "TCP port. You will need to open this port on your router if you want to display the data from outside your local network")]
         public int Port { get; set; } = 8900;
+        
+        [XmlComment(Value = "Adds a HTTPS Website")]
+        public bool EnableSSL { get; set; } = true;
+
+        [XmlComment(Value = "TCP port. You will need to open this port on your router if you want to display the data from outside your local network")]
+        public int SSLPort { get; set; } = 8901;
+        
+        [XmlComment(Value = "The path to your SSL certificate file")]
+        public string SSLCertFilePath { get; set; } = "/etc/letsencrypt/live/yourserver.com/fullchain.pem";
 
         [XmlComment(Value = "Interval for refreshing the information of players and vessels")]
         public int RefreshIntervalMs { get; set; } = 5000;
